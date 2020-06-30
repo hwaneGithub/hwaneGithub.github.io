@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        .join_table {border-collapse: collapse;}
+        .join_table td {padding-left: 5px;}
+    </style>
+</head>
+<body>
+    <form action="MAILTO:manager1@naver.com" method="post" enctype="text/plain">
+    <table class="join_table" align="center" width="600" height="400" border=1px>
+        <tr>
+            <td align="center" colspan="3" bgcolor="#CEE3F6"><b>회원 기본 정보</b></td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>아이디</b></td>
+            <td colspan="2"><input type="text" name="ID" size="15" value=""> 4~12자의 영문 대소문자와 숫자로만 입력</td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>비밀번호</b></td>
+            <td colspan="2"><input type="password" name="PW" size="15" value=""> 4~12자의 영문 대소문자와 숫자로만 입력</td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>비밀번호확인</b></td>
+            <td colspan="2"><input type="password" name="PWC" size="15" value=""></td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>메일주소</b></td>
+            <td colspan="2"><input type="email" name="email" size="20" value="">예)id@domain.com</td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>이름</b></td>
+            <td colspan="2"><input type="text" name="name" size="20" value=""></td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" width="100" bgcolor="#CEE3F6"><b>개인 신상 정보</b></td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>주민등록번호</b></td>
+            <td colspan="2">
+                <input type="text" name="SSNF" size="7" value=""> - 
+                <input type="password" name="SSNB" size="7" value=""> 예) 200630 - *******
+            </td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6"><b>생일</b></td>
+            <td colspan="2">
+                <input type="text" name="year" size="7" value=""> 년
+                <select name="month">
+                    <option value="">--</option >
+                    <option value="1월">1</option>
+                    <option value="2월">2</option>
+                    <option value="3월">3</option>
+                    <option value="4월">4</option>
+                    <option value="5월">5</option>
+                    <option value="6월">6</option>
+                    <option value="7월">7</option>
+                    <option value="8월">8</option>
+                    <option value="9월">9</option>
+                    <option value="10월">10</option>
+                    <option value="11월">11</option>
+                    <option value="12월">12</option>
+                </select> 월
+                <select name="date">
+                    <option value="">--</option>
+                    <option value="1일">1</option>
+                    <option value="2일">2</option>
+                    <option value="3일">3</option>
+                    <option value="4일">4</option>
+                    <option value="5일">5</option>
+                    <option value="6일">6</option>
+                    <option value="7일">7</option>
+                    <option value="8일">8</option>
+                    <option value="9일">9</option>
+                    <option value="10일">10</option>
+                    <option value="11일">11</option>
+                    <option value="12일">12</option>
+                    <option value="13일">13</option>
+                    <option value="14일">14</option>
+                    <option value="15일">15</option>
+                    <option value="16일">16</option>
+                    <option value="17일">17</option>
+                    <option value="18일">18</option>
+                    <option value="19일">19</option>
+                    <option value="20일">20</option>
+                    <option value="21일">21</option>
+                    <option value="22일">22</option>
+                    <option value="23일">23</option>
+                    <option value="24일">24</option>
+                    <option value="25일">25</option>
+                    <option value="26일">26</option>
+                    <option value="27일">27</option>
+                    <option value="28일">28</option>
+                    <option value="29일">29</option>
+                    <option value="30일">30</option>
+                    <option value="31일">31</option>
+                </select> 일
+            </td>
+        </tr>
+        <tr>
+            <td align="center" width="100" bgcolor="#E6E6E6" ><b>관심분야</b></td>
+            <td colspan="2">
+                <input type="checkbox" name="interest" value="1">컴퓨터
+                <input type="checkbox" name="interest" value="2">인터넷
+                <input type="checkbox" name="interest" value="3">여행
+                <input type="checkbox" name="interest" value="4">영화감상
+                <input type="checkbox" name="interest" value="5">음악감상
+            </td>
+        </tr>
+        <tr>
+            <td align="center" rowspan="10" width="100" bgcolor="#E6E6E6" ><b>자기소개</b></td>
+            <td rowspan="10" colspan="2"><textarea name="my_intro" cols="60" rows="6"></textarea><br></td>
+        </tr>
+    </table></br>
+    <center>
+            <input type="submit" value="회원 가입">
+            <input type="reset" value="다시 입력">
+    </center>
+    </form>
+</body>
+</html>
