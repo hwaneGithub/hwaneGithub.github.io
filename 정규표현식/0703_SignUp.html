@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Korea University Sign-up Page</title>
+
+<!-- 다음 주소찾기 팝업창 주소 -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+<!-- 테이블 목록 양식 -->
+<style>
+    .join_table {border-collapse: collapse;}
+    .join_table td {padding-left: 5px; padding-top: 5px; padding-bottom: 5px;}
+    .join_item {text-align : center; width: 100; padding: 5px; background-color: #E6E6E6;}
+</style>
+</head>
+
+<body bgcolor="#F5F6CE">
+
+<!-- .js 파일 불러오기 -->
+<script type="text/javascript" src="0703_SignUp.js"></script>
+
+<h1 align="center"><font color=#8A0829><b>KOREA UNIVERSITY</b></font></h1>
+<h4 align="center"><font color=#8A0829><b>Sign-up Page</b></font></h4>
+
+<!--
+form 태그 : 폼 안에 있는 모든 데이터를 웹 서버로 전송해서 웹 페이지에 출력하는 것까지 이르게 함
+onsubmit 속성: 폼 전송 전 입력된 데이터의 유효성을 체크함
+action 속성 : 폼 데이터가 전송되는 백엔드 url
+method 속성 : 폼 전송 방식(GET: url에 데이터를 넣어서 전송 POST: 데이터 전송 기반 요청 메서드, body에 데이터를 넣어서 전송)
+enctype 속성 : 폼 데이터가 서버로 제출될 때 해당 데이터가 인코딩되는 방법(post 방식 때만 사용)
+-->
+<form name="signUp" onsubmit="return validity();" action="MAILTO:manager1@naver.com" method="post" enctype="text/plain">
+
+    <table class="join_table" align="center" width="800" height="700" border=1px bgcolor="white">
+        <tr>
+            <td align="center" colspan="2" bgcolor="#8A0829"><font color=white><b>회원 기본 정보</b></font></td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>아이디</b></td>
+<!-- maxlength(최대 글자 수 제한)속성으로 ID,PW 길이 제한, onclick으로 아이디 입력창 클릭 시 음악 재생 -->
+            <td colspan="2"><input type="text" id="id" size="15" maxlength="12" onclick="play()"> 4~12자의 영문 대/소문자, 숫자로만 입력</td>    
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>비밀번호</b></td>
+            <td colspan="2"><input type="password" id="pw" size="15" maxlength="12"> 4~12자의 영문 대/소문자, 숫자로만 입력</td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>비밀번호확인</b></td>
+            <td colspan="2"><input type="password" id="checkpw" size="15" maxlength="12"></td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>메일주소</b></td>
+            <td colspan="2"><input type="email" id="email" size="15"> ex) id@domain.com</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center" width="100" bgcolor="#8A0829"><font color=white><b>개인 신상 정보</b></font></td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>이름</b></td>
+            <td colspan="2"><input type="text" name="name" size="15" maxlength="12"></td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>주민등록번호</b></td>
+            <td colspan="2">
+<!-- 주민등록번호 앞, 뒷자리는 각각 6, 7자리이므로 maxlength로 제한 -->
+                <input type="text" id="num1" size="15" maxlength="6"> -       
+                <input type="password" id="num2" size="15" maxlength="7"> 예) 200630 - 1234567
+            </td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>주소</b></td>
+            <td colspan="2">
+<!-- placeholder로 입력 데이터에 관한 힌트를 제공함 -->                
+                <input type="text" id="zip_code" size="15" placeholder="우편번호">
+<!-- 우편번호 찾기  onclick(클릭 시 이벤트 발생)으로 js파일의 postcode 함수 실행 -->
+                <input type="button" onclick="postcode()" value="우편번호 찾기"><br>            
+                <input type="text" id="main_address" size="15" placeholder="도로명/지번 주소">
+                <input type="text" id="sub_address" size="15" placeholder="상세주소">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>생일</b></td>
+            <td colspan="2">
+<!-- disabled로 값 임의 수정 방지 -->                
+                <input type="text" id="year" size="6" disabled> 년
+                <input type="text" id="month" size="2" disabled> 월
+                <input type="text" id="date" size="2" disabled> 일
+            </td>
+        </tr>
+
+        <tr>
+            <td class="join_item"><b>관심분야</b></td>
+            <td colspan="2">
+                <input type="checkbox" name="interest" value="IT/Tech">IT/Tech
+                <input type="checkbox" name="interest" value="Business/Economics">Business/Economics
+                <input type="checkbox" name="interest" value="Social_Science">Social Science
+                <input type="checkbox" name="interest" value="Education">Education
+                <input type="checkbox" name="interest" value="Linguistics">Linguistics
+            </td>
+        </tr>
+
+        <tr>
+            <td class="join_item" rowspan="5" width="100"><b>자기소개</b></td>
+<!-- style 속성에서 resize: none; 설정으로 textarea 크기 고정 -->
+            <td rowspan="5" colspan="2"><textarea style="resize: none;" name="my_intro" cols="92" rows="25" placeholder="10자 이상 입력하시오."></textarea><br></td>
+        </tr>
+
+    </table>
+
+<!-- 회원가입, 다시입력 버튼 생성 및 가운데 정렬-->
+<center>
+    <br/>
+    <input type="submit" value="회원가입" style="border-radius:5px;"/>
+    <input type="reset" value="다시입력" style="border-radius:5px;"/>
+</center>
+<br><br>
+
+<!-- audio 태그: 음악 재생 -->
+<center>
+    <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<!-- autoplay 속성: 음악 자동 재생,  control 속성: 음악 컨트롤하는 UI 출력,  loop 속성: 무한 반복 -->
+    <audio id="play_audio" autoplay loop>
+<!-- src 속성: 오디오 파일의 경로를 나타냄. 같은 폴더 안에 있어서 파일명 앞에 경로를 따로 넣지 않음-->
+        <source src="민족의아리아(Rock ver.).mp3" type="audio/mp3">
+    </audio>
+    <br><br>
+</center>
+<br><br>
+</form>
+</body>
+</html>
